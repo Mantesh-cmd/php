@@ -1,0 +1,5 @@
+docker build -t pbeniwal/apnamysql .
+
+docker login
+
+docker push pbeniwal/apnamysql

@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  mysql:
+    build: sql-scripts/.
+    environment:
+      MYSQL_ROOT_PASSWORD: edureka
+      MYSQL_DATABASE: docker
+    ports:
+      - "9906:3306"
+  web:
+    build: php/.
+    container_name: php_web
+    depends_on:
+      - mysql
+    volumes:
+      - my-datavolume:/var/lib/mysql
+    ports:
+      - "8888:80"
+    stdin_open: true
+    tty: true
+volumes:
+  my-datavolume:

@@ -1,0 +1,16 @@
+docker network create mybridge-network
+
+docker build -t mysql sql-scripts/.
+
+docker run -d --name=mysql  --env="MYSQL_ROOT_PASSWORD=edureka" --network=mybridge-network mysql:latest
+
+docker build -t php_web php/. --no-cache
+
+docker run -d --name=php_web -p 8888:80 --network=mybridge-network php_web:latest
+
+### volume
+
+docker volume create myvolume
+
+docker run -d --name=mysql  --env="MYSQL_ROOT_PASSWORD=edureka" --network=mybridge-network -v myvolume:/var/lib/mysql mysql:latest
+
