@@ -1,7 +1,6 @@
-version: '3'
+version: '3.7'
 services:
   php_mysql:
-    build: sql-scripts/.
     image: php_mysql
     environment:
       MYSQL_ROOT_PASSWORD: edureka
@@ -11,18 +10,17 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - my-bridge-network
+      - my-overlay-network
   php-web:
-    build: php/.
     image: php_web
     depends_on:
       - php_mysql
     ports:
       - "8888:80"
     networks:
-      - my-bridge-network
+      - my-overlay-network
 volumes:
   my-datavolume:
 networks:
-  my-bridge-network:
-    driver: bridge
+  my-overlay-network:
+    driver: overlay

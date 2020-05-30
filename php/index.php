@@ -1,11 +1,11 @@
 <html>
 <head>
-<title>Docker Sample App</title>
+<title>Docker App</title>
 
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-$servername = "mysql";
+$servername = "php_mysql";
 $username = "root";
 $password = "edureka";
 $dbname = "docker";
@@ -23,7 +23,15 @@ $sql = "INSERT INTO emp (name, phone)
 VALUES ('".$name."', '".$phone."')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "New record created successfully"."<br>";
+    echo "<br>";
+    echo "<b>Current employees are:</b><br>";
+    echo "<br>";
+    $mysql = 'SELECT name, phone FROM emp';
+    $result = $conn->query($mysql);
+    while ($row = $result->fetch_assoc()) {
+	    echo $row['name']."  ".$row['phone']."<br>";
+    }
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -33,6 +41,7 @@ $conn->close();
 ?>
 </head>
 <body>
+        <h1>New Employee</h1>
         <form action="index.php" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name"><br><br>
