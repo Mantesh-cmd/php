@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: edureka
+        name: mysql
+        image: pbeniwal/php_mysql:v1
+        ports:
+        - containerPort: 3306
