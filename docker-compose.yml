@@ -5,7 +5,6 @@ services:
     image: php_mysql
     environment:
       MYSQL_ROOT_PASSWORD: edureka
-      MYSQL_DATABASE: docker
     volumes:
       - my-datavolume:/var/lib/mysql
     ports:
@@ -15,8 +14,6 @@ services:
   php_web:
     build: web/.
     image: php_web
-    depends_on:
-      - php_mysql
     ports:
       - "8888:80"
     networks:

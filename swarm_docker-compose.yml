@@ -1,20 +1,17 @@
 version: '3.7'
 services:
   php_mysql:
-    image: php_mysql
+    image: pbeniwal/php_mysql
     environment:
       MYSQL_ROOT_PASSWORD: edureka
-      MYSQL_DATABASE: docker
     volumes:
       - my-datavolume:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
       - my-overlay-network
-  php-web:
-    image: php_web
-    depends_on:
-      - php_mysql
+  php_web:
+    image: pbeniwal/php_web:v1
     ports:
       - "8888:80"
     networks:
