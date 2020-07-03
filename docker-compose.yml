@@ -1,6 +1,6 @@
 version: '3'
 services:
-  php_mysql:
+  php-mysql:
     build: mysql/.
     image: php_mysql
     environment:

@@ -16,6 +16,6 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: edureka
         name: mysql
-        image: pbeniwal/php_mysql:v1
+        image: pbeniwal/php_mysql
         ports:
         - containerPort: 3306

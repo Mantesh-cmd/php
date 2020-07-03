@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: php-mysql
 spec:
-  type: NodePort
   selector:
     app: mysql
   ports:
