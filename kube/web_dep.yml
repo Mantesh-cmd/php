@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: php-apache
-        image: pbeniwal/php_web:v3
+        image: pbeniwal/php_web:v1
         ports:
         - containerPort: 80
 
