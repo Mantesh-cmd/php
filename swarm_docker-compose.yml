@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  php_mysql:
+  php-mysql:
     image: pbeniwal/php_mysql
     environment:
       MYSQL_ROOT_PASSWORD: edureka
