@@ -5,7 +5,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-$servername = "php_mysql";
+$servername = "php-mysql";
 $username = "root";
 $password = "edureka";
 $dbname = "docker";
